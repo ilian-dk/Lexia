@@ -1,8 +1,13 @@
 [build]
-  publish = "."
-  functions = "functions"
+  command = "npm run build"
+  publish = ".next"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+[build.environment]
+  NODE_VERSION = "18"
+  DATABASE_URL = "postgresql://build:build@localhost:5432/build"
+  NEXTAUTH_SECRET = "build-secret-placeholder"
+  NEXTAUTH_URL = "https://placeholder.netlify.app"
+  ANTHROPIC_API_KEY = "build-placeholder"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
