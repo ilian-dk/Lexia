@@ -13,6 +13,16 @@ export function formatDuration(minutes: number): string {
   return `${h}h ${m}m`
 }
 
+export function getInitials(name?: string | null): string {
+  if (!name) return "??"
+  return name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2)
+}
+
 export function formatSeconds(seconds: number): string {
   const h = Math.floor(seconds / 3600)
   const m = Math.floor((seconds % 3600) / 60)
